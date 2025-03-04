@@ -20,47 +20,28 @@
 <body>
 
     <h2>Question-4:</h2>
-    <p>Write a C program to find the prime numbers within a range of numbers.</p>
+    <p>Write a C program to check whether a given year is a leap year or not.</p>
 
     <h2>💻 Input Code:</h2>
     <pre>#include &lt;stdio.h&gt;
-int isPrime(int num) {
-    if (num &lt; 2)
-        return 0;
-    for (int i = 2; i * i &lt;= num; i++) {
-        if (num % i == 0)
-            return 0;
-    }
-    return 1;
-}
-
 int main() {
-    int start, end;
-
-    // Taking input for range
-    printf("Enter the starting number: ");
-    scanf("%d", &amp;start);
-    printf("Enter the ending number: ");
-    scanf("%d", &amp;end);
-
-    printf("Prime numbers between %d and %d are: ", start, end);
-
-    // Finding and displaying prime numbers in the range
-    for (int i = start; i &lt;= end; i++) {
-        if (isPrime(i)) {
-            printf("%d ", i);
-        }
+    int year;
+    printf("Enter the year: ");
+    scanf("%d",&year);
+    
+    if((year%4==0 && year%100!=0)||year%400==0){
+        printf("%d is a leap year.",year);
     }
-
-    printf("\n");
+    else{
+        printf("%d is not a leap year.",year);
+    }
     return 0;
 }
 </pre>
 
     <h2>🖥️ Output Code:</h2>
-    <pre>Enter the starting number: 45
-Enter the ending number: 89
-Prime numbers between 45 and 89 are: 47 53 59 61 67 71 73 79 83 89 
+    <pre>Enter the year: 200
+200 is not a leap year.
 </pre>
 
 <!-- Code injected by live-server -->
