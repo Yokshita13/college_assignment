@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Question and code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Question-4:</h2>
+    <p>Write a C program to find the prime numbers within a range of numbers.</p>
+
+    <h2>💻 Input Code:</h2>
+    <pre>#include &lt;stdio.h&gt;
+int isPrime(int num) {
+    if (num &lt; 2)
+        return 0;
+    for (int i = 2; i * i &lt;= num; i++) {
+        if (num % i == 0)
+            return 0;
+    }
+    return 1;
+}
+
+int main() {
+    int start, end;
+
+    // Taking input for range
+    printf("Enter the starting number: ");
+    scanf("%d", &amp;start);
+    printf("Enter the ending number: ");
+    scanf("%d", &amp;end);
+
+    printf("Prime numbers between %d and %d are: ", start, end);
+
+    // Finding and displaying prime numbers in the range
+    for (int i = start; i &lt;= end; i++) {
+        if (isPrime(i)) {
+            printf("%d ", i);
+        }
+    }
+
+    printf("\n");
+    return 0;
+}
+</pre>
+
+    <h2>🖥️ Output Code:</h2>
+    <pre>Enter the starting number: 45
+Enter the ending number: 89
+Prime numbers between 45 and 89 are: 47 53 59 61 67 71 73 79 83 89 
+</pre>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+</body></html>
